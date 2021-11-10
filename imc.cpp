@@ -1,20 +1,21 @@
-
 /*Este programa calcula o imc com a ntrada de peso e altura.*/
-#include <stdio.h> //biblioteca de netrada e saída
+
+#include <stdio.h> //biblioteca de entrada e saída
 #include <stdlib.h> //biblioteca para comando system("pause")
+
+float calcularImc (float peso, float altura); //protótipo do subprograma
+
 //programa princial
 int main() {
-	float peso, altura; //variáveis de entrada
+	float peso, altura;
 	float imc; //variáveis de saída
 	
-	printf("Informe seu peso em (kg): ");
-	// comando scanf("%f,&peso") é para receber um dado digitado por usuário e armazena na variável peso
+	printf("Informe seu peso em (kg): ");// comando scanf("%f,&peso") é para receber um dado digitado por usuário e armazena na variável peso
 	scanf("%f" ,&peso); //%f é a formatação de dados para double e float para int é %d.
 	printf("Informe sua altura em (m): ");
 	scanf("%f" ,&altura); //%f é a formatação de dados para double e float para int é %d.
 	
-	imc=peso/(altura * altura);//calcula imc
-	
+	imc=calcularImc(peso, altura);// calcula imc
 	
 	if (imc<18.5)
 		printf("Situacao de magreza !\n");
@@ -33,3 +34,12 @@ int main() {
 	
 	return 0;
 }
+
+
+//subprograma
+float calcularImc (float peso, float altura){
+	float imc; //variável local
+	imc=peso/(altura * altura);//calcula imc
+	return imc;
+}
+
